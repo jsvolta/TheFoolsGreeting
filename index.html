@@ -21,23 +21,24 @@ Description:
     <header>
         <h1>The Fool's Greeting</h1>
     </header>
-    <main>
-        <!-- Short description explaining purpose of site and how to use -->
-        <p>Welcome to The Fool's Greeting. Fill out your DnD character's information in the form below and prepare to be greeted by The Fool.</p>
 
+    <!-- Short description explaining purpose of site and how to use -->
+    <p class="Description">Welcome to The Fool's Greeting! Fill out your DnD character's information in the form below and prepare to be greeted by The Fool.</p>
+
+    <main>
         <!-- The main form -->
         <form id="CharacterInfoForm" action="" method="GET">
             <!-- Name -->
             <!-- NOTE: Maybe restrict name characters with regex? -->
-            <span>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text">
-            </span>
+            <div class="FormItem">
+                <label for="NameInput">Name</label>
+                <input id="NameInput" name="name" type="text">
+            </div>
 
             <!-- Race -->
-            <span>
-                <label for="race">Race</label>
-                <select id="race" name="race">
+            <div class="FormItem">
+                <label for="RaceInput">Race</label>
+                <select id="RaceInput" name="race">
                     <option value="dragonborn">Dragonborn</option>
                     <option value="dwarf">Dwarf</option>
                     <option value="Elf">Elf</option>
@@ -47,12 +48,12 @@ Description:
                     <option value="human">Human</option>
                     <option value="tiefling">Tiefling</option>
                 </select>
-            </span>
+            </div>
 
             <!-- Class -->
-            <span>
-                <label for="class">Class</label>
-                <select id="class" name="class">
+            <div class="FormItem">
+                <label for="ClassInput">Class</label>
+                <select id="ClassInput" name="class">
                     <option value="barbarian">Barbarian</option>
                     <option value="bard">Bard</option>
                     <option value="cleric">Cleric</option>
@@ -67,12 +68,12 @@ Description:
                     <option value="warlock">Warlock</option>
                     <option value="wizard">Wizard</option>
                 </select>
-            </span>
+            </div>
 
             <!-- Strongest Stat -->
-            <span>
-                <label for="strongestStat">Strongest Stat</label>
-                <select id="strongestStat" name="strongestStat">
+            <div class="FormItem">
+                <label for="StrongestStatInput">Strongest Stat</label>
+                <select id="StrongestStatInput" name="strongestStat">
                     <option value="strength">Strength</option>
                     <option value="dexterity">Dexterity</option>
                     <option value="constitution">Constitution</option>
@@ -80,12 +81,12 @@ Description:
                     <option value="wisom">Wisdom</option>
                     <option value="charisma">Charisma</option>
                 </select>
-            </span>
+            </div>
 
             <!-- Weakest Stat -->
-            <span>
-                <label for="weakestStat">Weakest Stat</label>
-                <select id="weakestStat" name="weakestStat">
+            <div class="FormItem">
+                <label for="WeakestStatItem">Weakest Stat</label>
+                <select id="WeakestStatItem" name="weakestStat">
                     <option value="strength">Strength</option>
                     <option value="dexterity">Dexterity</option>
                     <option value="constitution">Constitution</option>
@@ -93,12 +94,12 @@ Description:
                     <option value="wisom">Wisdom</option>
                     <option value="charisma">Charisma</option>
                 </select>
-            </span>
+            </div>
 
             <!-- Submit -->
-            <input aria-label="Generate greeting." type="submit" value="GENERATE">
+            <input aria-label="Generate greeting." type="submit" value="Submit">
         </form>
-        <p id="output"></p>
+        <p id="Output">test output</p>
     </main>
 </body>
 </html>
