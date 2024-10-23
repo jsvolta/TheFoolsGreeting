@@ -1,0 +1,104 @@
+<!--
+Author:     Jaden Christie
+Program:    index.html
+Date:       October 23, 2024
+Updated:
+Version:    2024.1
+Liscence:   GNU GENERAL PUBLIC LICENSE Version 3
+Description:
+    A single page application that takes your DnD character's basic information
+    and generates a greeting from a fool.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fool's Greeting</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1>The Fool's Greeting</h1>
+    </header>
+    <main>
+        <!-- Short description explaining purpose of site and how to use -->
+        <p>Welcome to The Fool's Greeting. Fill out your DnD character's information in the form below and prepare to be greeted by The Fool.</p>
+
+        <!-- The main form -->
+        <form id="CharacterInfoForm" action="" method="GET">
+            <!-- Name -->
+            <!-- NOTE: Maybe restrict name characters with regex? -->
+            <span>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text">
+            </span>
+
+            <!-- Race -->
+            <span>
+                <label for="race">Race</label>
+                <select id="race" name="race">
+                    <option value="dragonborn">Dragonborn</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="Elf">Elf</option>
+                    <option value="Gnome">Gnome</option>
+                    <option value="halfelf">Half-elf</option>
+                    <option value="halfling">Halfling</option>
+                    <option value="human">Human</option>
+                    <option value="tiefling">Tiefling</option>
+                </select>
+            </span>
+
+            <!-- Class -->
+            <span>
+                <label for="class">Class</label>
+                <select id="class" name="class">
+                    <option value="barbarian">Barbarian</option>
+                    <option value="bard">Bard</option>
+                    <option value="cleric">Cleric</option>
+                    <option value="druid">Druid</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="monk">Monk</option>
+                    <option value="paladin">Paladin</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="rouge">Rouge</option>
+                    <option value="sorcerer">Sorcerer</option>
+                    <option value="sorcerer">Sorcerer</option>
+                    <option value="warlock">Warlock</option>
+                    <option value="wizard">Wizard</option>
+                </select>
+            </span>
+
+            <!-- Strongest Stat -->
+            <span>
+                <label for="strongestStat">Strongest Stat</label>
+                <select id="strongestStat" name="strongestStat">
+                    <option value="strength">Strength</option>
+                    <option value="dexterity">Dexterity</option>
+                    <option value="constitution">Constitution</option>
+                    <option value="intelligence">Intelligence</option>
+                    <option value="wisom">Wisdom</option>
+                    <option value="charisma">Charisma</option>
+                </select>
+            </span>
+
+            <!-- Weakest Stat -->
+            <span>
+                <label for="weakestStat">Weakest Stat</label>
+                <select id="weakestStat" name="weakestStat">
+                    <option value="strength">Strength</option>
+                    <option value="dexterity">Dexterity</option>
+                    <option value="constitution">Constitution</option>
+                    <option value="intelligence">Intelligence</option>
+                    <option value="wisom">Wisdom</option>
+                    <option value="charisma">Charisma</option>
+                </select>
+            </span>
+
+            <!-- Submit -->
+            <input aria-label="Generate greeting." type="submit" value="GENERATE">
+        </form>
+        <p id="output"></p>
+    </main>
+</body>
+</html>
