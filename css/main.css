@@ -1,0 +1,230 @@
+/*
+Author:     Jaden Christie
+Program:    main.css
+Date:       October 23, 2024
+Updated:
+Version:    2024.1
+Liscence:   GNU GENERAL PUBLIC LICENSE Version 3
+Description:
+    Main styling for a single page application that takes your DnD character's
+    basic information and generates a greeting from a fool.
+
+    SECTIONS
+    - import fonts
+    - css variables (colors, margin, etc)
+    - styling (html, body, header, main, etc)
+*/
+
+/* FONTS */
+/* Grenze */
+@import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+
+/* CSS VARIABLES */
+:root
+{
+    /* fonts */
+    --header-font: "Grenze", serif;
+    --body-font: "EB Garamond", serif;
+
+    /* colors (from https://tailwindcss.com/docs/customizing-colors) */
+    /* grey is tailwind slate */
+    --grey-50: #f8fafc;
+    --grey-100: #f1f5f9;
+    --grey-200: #e2e8f0;
+    --grey-300: #cbd5e1;
+    --grey-400: #94a3b8;
+    --grey-500: #64748b;
+    --grey-600: #475569;
+    --grey-700: #334155;
+    --grey-800: #1e293b;
+    --grey-900: #0f172a;
+    --grey-950: #020617;
+
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-200: #bfdbfe;
+    --blue-300: #93c5fd;
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+    --blue-900: #1e3a8a;
+    --blue-950: #172554;
+
+    --default-font-color: var(--blue-300);
+    --main-elements-background-color: color-mix(in srgb, var(--blue-950) 25%, transparent);
+    --submit-button-box-shadow: var(--blue-500);
+
+    /* margins, padding, etc. */
+    --main-margin-between: 1rem;
+}
+
+/* STYLING */
+html
+{
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+
+    /* Background */
+    background-color: var(--grey-900);
+
+    /* default text attributs */
+    font-size: 18px;
+    color: var(--default-font-color);
+    font-family: var(--body-font);
+
+    /* Center Body */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body
+{
+    width: 500px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1
+{
+    font-family: var(--header-font);
+    font-size: 3rem;
+    color: var(--blue-500)  ;
+    margin: 0;
+}
+
+.Description
+{
+    box-sizing: border-box;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    text-align: center;
+}
+
+main
+{
+    box-sizing: border-box;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    padding: 1rem 1rem;
+
+    border-radius: 20px;
+    border: 2px solid var(--blue-700);
+
+    background-color: var(--main-elements-background-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.FormItem
+{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* NOTE: maybe style the input and selects some more */
+label
+{
+    width: 40%;
+    text-align: center;
+}
+
+input[type=text], select
+{
+    box-sizing: border-box;
+    width: 60%;
+    height: 25px;
+    padding: 0.2rem;
+
+    border-radius: 4px;
+    border: none;
+
+    text-align: center;
+}
+
+input[type=submit]
+{
+    box-sizing: border-box;
+    width: 70%;
+    padding: 0.2rem;
+    text-align: center;
+
+    font-weight: 600;
+    color: var(--blue-200);
+    background-color: var(--blue-700);
+
+    border: none;
+    border-radius: 100px;
+    padding: 0.5rem;
+
+    cursor: pointer;
+    transition: 250ms;
+}
+
+input[type=submit]:hover
+{
+    box-shadow: var(--submit-button-box-shadow) 0 -25px 18px -14px inset,
+        var(--submit-button-box-shadow) 0 1px 2px,
+        var(--submit-button-box-shadow) 0 0.125rem 0.25rem,
+        var(--submit-button-box-shadow) 0 0.25rem 0.5rem,
+        var(--submit-button-box-shadow) 0 0.5rem 1rem;
+    transform: scale(1.1)
+}
+
+input[type=submit]:active {
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.OutputContainer
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem 1rem;
+
+    margin-top: var(--main-margin-between);
+
+    background-color: var(--main-elements-background-color);
+
+    border-radius: 20px;
+    border: 2px solid var(--blue-700);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Output
+{
+    margin: 0;
+    text-align: center;
+}
