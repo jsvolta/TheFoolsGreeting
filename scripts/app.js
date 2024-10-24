@@ -1,14 +1,3 @@
-/*
-Author:     Jaden Christie
-Program:    app.js
-Date:       October 23, 2024
-Updated:
-Version:    2024.1
-Liscence:   GNU GENERAL PUBLIC LICENSE Version 3
-Description:
-    Main logic for a single page application that takes your DnD character's
-    basic information and generates a greeting from a fool.
-*/
 "use strict"
 
 // TODO: make this more sophisticated.
