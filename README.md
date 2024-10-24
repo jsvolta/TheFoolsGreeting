@@ -15,3 +15,6 @@ From the repo:
 
 ## Dev Dependencies
 There is nothing this project is dependent on. However, I use a lot of TODO, NOTE, or FIXME comments throughout. I would recommend that you use a todo highlighter like [folke's todo-comments for neovim](https://github.com/folke/todo-comments.nvim).
+
+## ToDo
+- Make responsive.
