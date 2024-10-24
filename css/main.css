@@ -12,8 +12,7 @@
 
 
 /* CSS VARIABLES */
-:root
-{
+:root {
     /* fonts */
     --header-font: "Grenze", serif;
     --body-font: "EB Garamond", serif;
@@ -53,8 +52,7 @@
 }
 
 /* STYLING */
-html
-{
+html {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
@@ -75,8 +73,7 @@ html
     justify-content: center;
 }
 
-body
-{
+body {
     width: 500px;
     height: 100%;
 
@@ -86,16 +83,14 @@ body
     justify-content: center;
 }
 
-h1
-{
+h1 {
     font-family: var(--header-font);
     font-size: 3rem;
-    color: var(--blue-400)  ;
+    color: var(--blue-400);
     margin: 0;
 }
 
-.Description
-{
+.Description {
     box-sizing: border-box;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -103,8 +98,7 @@ h1
     text-align: center;
 }
 
-main
-{
+main {
     box-sizing: border-box;
     width: 300px;
 
@@ -114,8 +108,7 @@ main
     align-items: center;
 }
 
-form
-{
+form {
     box-sizing: border-box;
     width: 100%;
     height: 400px;
@@ -132,8 +125,7 @@ form
     align-items: center;
 }
 
-.FormItem
-{
+.FormItem {
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -142,14 +134,13 @@ form
 }
 
 /* NOTE: maybe style the input and selects some more */
-label
-{
+label {
     width: 40%;
     text-align: center;
 }
 
-input[type=text], select
-{
+input[type=text],
+select {
     box-sizing: border-box;
     width: 60%;
     height: 25px;
@@ -161,8 +152,12 @@ input[type=text], select
     text-align: center;
 }
 
-input[type=submit]
-{
+input:invalid,
+.invalid {
+    border: 2px solid red;
+}
+
+input[type=submit] {
     box-sizing: border-box;
     width: 70%;
     padding: 0.2rem;
@@ -180,8 +175,7 @@ input[type=submit]
     transition: 250ms;
 }
 
-input[type=submit]:hover
-{
+input[type=submit]:hover {
     box-shadow: var(--submit-button-box-shadow) 0 -25px 18px -14px inset,
         var(--submit-button-box-shadow) 0 1px 2px,
         var(--submit-button-box-shadow) 0 0.125rem 0.25rem,
@@ -195,8 +189,7 @@ input[type=submit]:active {
     transform: scale(1);
 }
 
-.OutputContainer
-{
+.OutputContainer {
     box-sizing: border-box;
     width: 100%;
     padding: 1rem 1rem;
@@ -213,8 +206,7 @@ input[type=submit]:active {
     align-items: center;
 }
 
-#Output
-{
+#Output {
     margin: 0;
     text-align: center;
 }

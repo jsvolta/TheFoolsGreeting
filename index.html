@@ -24,14 +24,13 @@
     <p class="Description">Welcome to The Fool's Greeting! Fill out your DnD character's information in the form below and prepare to be greeted by The Fool.</p>
 
     <main>
-        <!-- TODO: make form items required and add styling for invalid -->
         <!-- The main form -->
         <form id="CharacterInfoForm" action="" method="GET">
             <!-- Name -->
             <!-- NOTE: Maybe restrict name characters with regex? -->
             <div class="FormItem">
                 <label for="NameInput">Name</label>
-                <input id="NameInput" name="name" type="text">
+                <input id="NameInput" name="name" type="text" required>
             </div>
 
             <!-- Race -->

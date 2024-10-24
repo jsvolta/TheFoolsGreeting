@@ -3,13 +3,61 @@
 // TODO: make this more sophisticated.
 // For example if a barbarian's highest stat is intelligence the output could be
 //  "Impossible! Where did a creature like you pop out from."
-function generateGreeting(characterInfo)
-{
+
+function main() {
+    const characterInfoForm = document.getElementById("CharacterInfoForm");
+    const nameInput = document.getElementById("NameInput");
+    const raceInput = document.getElementById("RaceInput");
+    const classInput = document.getElementById("ClassInput");
+    const strongestStatInput = document.getElementById("StrongestStatInput");
+    const weakestStatInput = document.getElementById("WeakestStatInput");
+    const output = document.getElementById("Output");
+
+    // If there is a previous attempt in local storage load in the values
+    if (localStorage.previousAttempt) {
+        const previousAttempt = JSON.parse(localStorage.previousAttempt);
+
+        nameInput.value = previousAttempt["name"];
+        raceInput.value = previousAttempt["race"];
+        classInput.value = previousAttempt["class"];
+        strongestStatInput.value = previousAttempt["strongestStat"];
+        weakestStatInput.value = previousAttempt["weakestStat"];
+        output.innerHTML = previousAttempt["output"];
+    }
+
+    characterInfoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        output.innerHTML = "";
+
+        if (weakestStatInput.value != strongestStatInput.value) {
+            weakestStatInput.classList.remove("invalid");
+            const attempt = {
+                "name": nameInput.value,
+                "race": raceInput.value,
+                "class": classInput.value,
+                "strongestStat": strongestStatInput.value,
+                "weakestStat": weakestStatInput.value
+            }
+
+            let greeting = generateGreeting(attempt);
+            attempt["output"] = greeting;
+            output.innerHTML = greeting;
+
+            localStorage.previousAttempt = JSON.stringify(attempt);
+        }
+        else {
+            output.innerHTML = "Strongest Stat and Weakest Stat cannot be the same.";
+            weakestStatInput.classList.add("invalid");
+        }
+    });
+}
+
+function generateGreeting(characterInfo) {
     let output = `Welcome ${characterInfo["name"]}!<br>`
         + `Although you are a ${characterInfo["race"]} ${characterInfo["class"]} `;
 
     switch (characterInfo["strongestStat"]) {
-        case "strength":
+        case "strength": 
         {
             output += `with devilish strength, `;
         } break;
@@ -88,51 +136,9 @@ function generateGreeting(characterInfo)
         } return output;
     }
 
-
     output += `Let's meet as little as possible.`
 
     return output;
 }
 
-// FIXME: extract to a main function
-document.addEventListener("DOMContentLoaded", () => {
-    const characterInfoForm = document.getElementById("CharacterInfoForm");
-    const nameInput = document.getElementById("NameInput");
-    const raceInput = document.getElementById("RaceInput");
-    const classInput = document.getElementById("ClassInput");
-    const strongestStatInput = document.getElementById("StrongestStatInput");
-    const weakestStatInput = document.getElementById("WeakestStatInput");
-    const output = document.getElementById("Output");
-
-    // If there is a previous attempt in local storage load in the values
-    if (localStorage.previousAttempt) {
-        const previousAttempt = JSON.parse(localStorage.previousAttempt);
-
-        nameInput.value = previousAttempt["name"];
-        raceInput.value = previousAttempt["race"];
-        classInput.value = previousAttempt["class"];
-        strongestStatInput.value = previousAttempt["strongestStat"];
-        weakestStatInput.value = previousAttempt["weakestStat"];
-        output.innerHTML = previousAttempt["output"];
-    }
-
-    characterInfoForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        output.innerHTML = "";
-
-        // TODO: validate weakest and strongeset are not the same
-        const attempt = {
-            "name": nameInput.value,
-            "race": raceInput.value,
-            "class": classInput.value,
-            "strongestStat": strongestStatInput.value,
-            "weakestStat": weakestStatInput.value
-        }
-
-        let greeting = generateGreeting(attempt);
-        attempt["output"] = greeting;
-        output.innerHTML = greeting;
-
-        localStorage.previousAttempt = JSON.stringify(attempt);
-    });
-});
+document.addEventListener("DOMContentLoaded", main);
