@@ -49,6 +49,7 @@
 
     /* margins, padding, etc. */
     --main-margin-between: 1rem;
+    --panel-size: 300px;
 }
 
 /* STYLING */
@@ -74,7 +75,6 @@ html {
 }
 
 body {
-    width: 500px;
     height: 100%;
 
     display: flex;
@@ -92,6 +92,7 @@ h1 {
 
 .Description {
     box-sizing: border-box;
+    width: 500px;
     margin-top: 1rem;
     margin-bottom: 1rem;
 
@@ -100,18 +101,19 @@ h1 {
 
 main {
     box-sizing: border-box;
-    width: 300px;
+    width: calc((var(--panel-size) * 2) + var(--main-margin-between));
+    height: 400px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 form {
     box-sizing: border-box;
-    width: 100%;
-    height: 400px;
+    width: var(--panel-size);
+    height: 100%;
     padding: 1rem 1rem;
 
     border-radius: 20px;
@@ -191,10 +193,9 @@ input[type=submit]:active {
 
 .OutputContainer {
     box-sizing: border-box;
-    width: 100%;
+    width: var(--panel-size);
+    height: 100%;
     padding: 1rem 1rem;
-
-    margin-top: var(--main-margin-between);
 
     background-color: var(--main-elements-background-color);
 
