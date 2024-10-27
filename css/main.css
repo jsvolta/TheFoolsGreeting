@@ -47,43 +47,31 @@
     --main-elements-background-color: color-mix(in srgb, var(--blue-950) 25%, transparent);
     --submit-button-box-shadow: var(--blue-500);
 
-    /* margins, padding, etc. */
+    --max-panel-width: 300px;
     --main-margin-between: 1rem;
-    --panel-size: 300px;
 }
 
 /* STYLING */
-html {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-    padding: 1rem;
+}
 
-    /* Background */
+html {
     background-color: var(--grey-900);
-
-    /* default text attributs */
     font-size: 18px;
     color: var(--default-font-color);
     font-family: var(--body-font);
 
-    /* Center Body */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-body {
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+header, p, main {
+    margin: auto;
 }
 
 h1 {
+    text-align: center;
     font-family: var(--header-font);
     font-size: 3rem;
     color: var(--blue-400);
@@ -92,7 +80,7 @@ h1 {
 
 .Description {
     box-sizing: border-box;
-    width: 500px;
+    max-width: 500px;
     margin-top: 1rem;
     margin-bottom: 1rem;
 
@@ -100,25 +88,26 @@ h1 {
 }
 
 main {
-    box-sizing: border-box;
-    width: calc((var(--panel-size) * 2) + var(--main-margin-between));
-    height: 400px;
+    /* TODO: find out if max-width is necessary */
+    max-width: calc((var(--max-panel-width) * 2)  + var(--main-margin-between));
 
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 }
 
+form, .OutputContainer {
+    max-width: var(--max-panel-width);
+    width: 100%;
+    min-height: 400px;
+}
+
 form {
-    box-sizing: border-box;
-    width: var(--panel-size);
-    height: 100%;
     padding: 1rem 1rem;
 
     border-radius: 20px;
     border: 2px solid var(--blue-700);
-
     background-color: var(--main-elements-background-color);
 
     display: flex;
@@ -128,16 +117,14 @@ form {
 }
 
 .FormItem {
-    box-sizing: border-box;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
 /* NOTE: maybe style the input and selects some more */
 label {
-    width: 40%;
     text-align: center;
 }
 
@@ -145,6 +132,7 @@ input[type=text],
 select {
     box-sizing: border-box;
     width: 60%;
+    min-width: 100px;
     height: 25px;
     padding: 0.2rem;
 
@@ -160,7 +148,6 @@ input:invalid,
 }
 
 input[type=submit] {
-    box-sizing: border-box;
     width: 70%;
     padding: 0.2rem;
     text-align: center;
@@ -192,9 +179,6 @@ input[type=submit]:active {
 }
 
 .OutputContainer {
-    box-sizing: border-box;
-    width: var(--panel-size);
-    height: 100%;
     padding: 1rem 1rem;
 
     background-color: var(--main-elements-background-color);
@@ -208,6 +192,6 @@ input[type=submit]:active {
 }
 
 #Output {
-    margin: 0;
+    margin: auto;
     text-align: center;
 }
